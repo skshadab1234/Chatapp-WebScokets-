@@ -17,24 +17,30 @@
             },
             success: (res) => {
                 $("#start_chat").html(res);
-                $(".chat-user-list li").removeClass("active");
-                $(".user_active_box"+id).addClass('active');
+                
                 getProfile(id,name,email,time,location,getProfile);
                 $('.chat-conversation').animate({scrollTop: $('.chat-conversation').get(0).scrollHeight}, 0);
             }
         })
     }
 
-    $.ajax({
-        url: 'auth/ajax.php',
-        type:'post',
-        data: {
-            userChatList_4121 : 'userChatList-4121'
-        },
-        success: (res) => {
-           $(".chat-user-list").html(res);
-        }
-    })
+   function loadChatList() {
+        $.ajax({
+            url: 'auth/ajax.php',
+            type:'post',
+            data: {
+                userChatList_4121 : 'userChatList-4121'
+            },
+            success: (res) => {
+                $(".chat-user-list").html(res);
+            }
+        })
+   }
+
+   loadChatList();
+   setInterval( () => {
+        loadChatList();
+    }, 1000)
 
 
 

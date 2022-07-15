@@ -215,7 +215,7 @@
                         <!-- Start chats content -->
                         <div>
                             <div class="px-4 pt-4">
-                                <h4 class="mb-4">Chats</h4>
+                                <h4 class="mb-4">Chats (<?= $user['name'] ?>)</h4>
                                 <div class="search-box chat-search-box">            
                                     <div class="input-group mb-3 rounded-3">
                                         <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
@@ -233,22 +233,7 @@
                                 <div class="chat-message-list px-2" data-simplebar>
             
                                     <ul class="list-unstyled chat-list chat-user-list">
-                                        <!-- <li class="active">
-                                            <a href="#">
-                                                <div class="d-flex">                            
-                                                    <div class="chat-user-img online align-self-center me-3 ms-0">
-                                                        <img src="https://themesbrand.com/chatvia/layouts/assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="">
-                                                        <span class="user-status"></span>
-                                                    </div>
-                            
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <h5 class="text-truncate font-size-15 mb-1">Patrick Hendricks</h5>
-                                                        <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p>
-                                                    </div>
-                                                    <div class="font-size-11">05 min</div>
-                                                </div>
-                                            </a>
-                                        </li> -->
+                                       Loading...
     
                                     </ul>
                                 </div>

@@ -1,6 +1,6 @@
 <?php
     include "auth/session.php";
-    include "auth/function.inc.php";
+
     if(!isset($_SESSION['id'])) {
         header("location: auth/index.php");
     }
@@ -34,7 +34,7 @@
 
     </head>
 
-    <body>
+    <body data-layout-mode="dark">
         <div class="layout-wrapper d-lg-flex">
             <!-- Start left sidebar-menu -->
             <div class="side-menu flex-lg-column me-lg-1 ms-lg-0">

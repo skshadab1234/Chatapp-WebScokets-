@@ -30,11 +30,33 @@
         <!-- App Css-->
         <link href="https://themesbrand.com/chatvia/layouts/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+        <style>
+           ::-webkit-scrollbar-track
+            {
+                border-radius: 10px;
+                background-color: #262e35;
+            }
 
+           ::-webkit-scrollbar
+            {
+                width: 12px;
+                background-color: #262e35;
+            }
+
+           ::-webkit-scrollbar-thumb
+            {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #7269EF;
+            }
+            .chat-conversation{
+                height: calc(100vh - 170px)!important;
+            }
+        </style>
 
     </head>
 
-    <body data-layout-mode="dark">
+    <body data-layout-mode="dark" style="overflow:hidden">
         <div class="layout-wrapper d-lg-flex">
             <!-- Start left sidebar-menu -->
             <div class="side-menu flex-lg-column me-lg-1 ms-lg-0">
@@ -1442,8 +1464,6 @@
         </div>
         <!-- end  layout wrapper -->
 
-
-        
         <!-- JAVASCRIPT -->
         <script src="https://themesbrand.com/chatvia/layouts/assets/libs/jquery/jquery.min.js"></script>
         <script src="https://themesbrand.com/chatvia/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1470,6 +1490,18 @@
                 console.log("Connection established!");
             };
             
+            function updateUserStatus(){
+                jQuery.ajax({
+                    url:'auth/update_user_status.php',
+                    success:function(result){
+                        
+                    }
+                });
+            }
+            
+            setInterval(function(){
+                updateUserStatus();
+            },7000);
         </script>
         <script src="script.js"></script>
     </body>

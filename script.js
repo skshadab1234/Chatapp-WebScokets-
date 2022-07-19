@@ -5,7 +5,7 @@
         $("#start_chat").removeClass('d-none');
 
         $.ajax({
-            url: 'auth/ajax.php',
+            url: 'auth_page/ajax.php',
             type:'post',
             data: {
                 id : id,
@@ -26,7 +26,7 @@
 
    function loadChatList() {
         $.ajax({
-            url: 'auth/ajax.php',
+            url: 'auth_page/ajax.php',
             type:'post',
             data: {
                 userChatList_4121 : 'userChatList-4121'

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2022 at 07:32 PM
+-- Generation Time: Jul 19, 2022 at 07:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -65,7 +65,10 @@ INSERT INTO `chats` (`id`, `mesage`, `message_from`, `message_to`, `send_time`, 
 (414, 'hmm', '1', '5', '2022-07-17 22:44:00', 1),
 (415, 'hey', '1', '7', '2022-07-17 22:47:48', 1),
 (416, 'haa bhai', '1', '7', '2022-07-17 22:47:48', 1),
-(417, 'kaise ho', '7', '1', '2022-07-17 22:48:03', 1);
+(417, 'kaise ho', '7', '1', '2022-07-17 22:48:03', 1),
+(418, 'hey', '5', '1', '2022-07-19 22:50:38', 1),
+(419, 'hi', '1', '5', '2022-07-19 22:51:04', 1),
+(420, 'kaise ho', '5', '1', '2022-07-19 22:51:08', 1);
 
 -- --------------------------------------------------------
 
@@ -88,9 +91,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `user_img`, `last_login`, `location`) VALUES
-(1, 'ks615044@gmail.com', 'Shadab', 'Khan Shadab AlAam', '', '1658079121', 'Mumbai'),
+(1, 'ks615044@gmail.com', 'Shadab', 'Khan Shadab AlAam', '', '1658251366', 'Mumbai'),
 (2, 'asa@gmail.com', 'Sasad', 'Shadab', '', '1658078379', 'US'),
-(5, 'skshadabkhojo@gmail.com', 'shadab', 'Khan Jio', '', '1658078100', 'Mumbai'),
+(5, 'skshadabkhojo@gmail.com', 'shadab', 'Khan Jio', '', '1658251319', 'Mumbai'),
 (6, 'a@gmail.com', 'shadab', 'a', '', '2022-07-12 17:35:34', 'Uttar Pradesh'),
 (7, 'vijaypathan@gmail.com', 'shadab', 'Vijay Shinde', '', '1658078952', '');
 
@@ -118,13 +121,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=418;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

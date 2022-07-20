@@ -104,7 +104,6 @@
 
                       
                         <li class="nav-item dropdown profile-user-dropdown d-inline-block d-lg-none">
-                            
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="<?= $user_img ?>" alt="" class="profile-user rounded-circle">
                             </a>
@@ -405,7 +404,7 @@
             
             setInterval(function(){
                 updateUserStatus();
-            },7000);
+            },3000);
         </script>
         <script src="script.js"></script>
     </body>

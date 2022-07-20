@@ -60,7 +60,9 @@
                         </div>
                         <div class="flex-grow-1 overflow-hidden" style="position: relative;top: 8px;" onclick="getProfile('<?= $_POST['id'] ?>','<?= $_POST['name'] ?>','<?= $_POST['email'] ?>','<?= $_POST['time'] ?>','<?= $_POST['location'] ?>', 'getProfile')">
                             <h5 class="font-size-16 mb-0 text-truncate"><a href="#" class="text-reset user-profile-show"><?= $_POST['name'] ?></a> <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i></h5>
-                            <p id="last_seen_status<?= $_POST['id'] ?>"></p>
+                            <div class="d-flex">
+                                <p id="last_seen_status<?= $_POST['id'] ?>"></p><span id="typing_here<?= $_POST['id'] ?>"></span>
+                            </div>
                         </div>
                         
                     </div>
@@ -131,12 +133,14 @@
                                     </div>
                                 </div>
                             </li> 
+
                             <?php
                         }
                     }
                     
                    
                 ?>
+
             </ul>
         </div>
         <!-- end chat conversation end -->
@@ -146,7 +150,7 @@
             <div class="chat-input-section p-3  border-top mb-0">
                 <div class="row g-0">
                     <div class="col">
-                        <input type="text" id="userChatMessage"  class="form-control form-control-lg bg-light border-light" placeholder="Enter Message...">
+                        <input type="text" id="userChatMessage" onkeypress="updateTyping('<?= $_POST['id'] ?>')"  class="form-control form-control-lg bg-light border-light" placeholder="Enter Message...">
                     </div>
                     <div class="col-auto">
                         <div class="chat-input-links ms-md-2 me-md-0">
@@ -259,16 +263,39 @@
                         id : <?= $_POST['id'] ?>,
                     },
                     success:function(result){
-                        jQuery('#last_seen_status'+<?= $_POST['id'] ?>).html(result);
+                        var data = $.parseJSON(result);
+                        if(data.data == 'Typing'){
+                            jQuery('#typing_here'+<?= $_POST['id'] ?>).html('Typing....');
+                            jQuery('#last_seen_status'+<?= $_POST['id'] ?>).html('');
+                        }else{
+                            jQuery('#last_seen_status'+<?= $_POST['id'] ?>).html(data.data);
+
+                            // When Not Typing 
+                            $("#typing_here"+<?= $_POST['id'] ?>).html('');
+                        }
                     }
                 });
             }
             
-            
-            
             setInterval(function(){
                 getUserStatus();
-            },8000);
+            },4000);
+
+            // Typing Status Update
+            function updateTyping(opponentId){
+                jQuery.ajax({
+                    url:'auth_page/get_user_status.php',
+                    type: "post",
+                    data: {
+                        opponentId : <?= $_POST['id'] ?>,
+                    },
+                    success:function(result){
+                        // jQuery('#last_seen_status'+<?= $_POST['id'] ?>).html(result);
+                    }
+                });
+            }
+
+            
         </script>
         
         <script>
